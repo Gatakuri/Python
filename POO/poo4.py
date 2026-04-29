@@ -19,7 +19,7 @@ class People:
         return f'My age is {self.age} years'
     
         
-FILE_PATH = "poo4.json"
+FILE_PATH = "POO/poo4.json"
 p1 = People("Rafael", "Coelho", 17)
 p2 = People("Aaron", "Carvalho", 18)
 p3 = People("Giovana", "Simões", 18)
