@@ -1,0 +1,16 @@
+{
+    "nome": "Rafael Coelho",
+    "idade": 18,
+    "endereços": [
+        {
+            "rua": "Rodolfo galvão",
+            "número": 92
+        },
+        {
+            "rua": "Conde de Bonfim",
+            "número": 685
+        }
+    ],
+    "DEV": true,
+    "casado": true
+}
