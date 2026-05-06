@@ -8,28 +8,37 @@ import bpy
 import time
 from bpy.app.handlers import persistent
 
-last_change = time.time()
-last_save = time.time()
+last_change = 0
+last_save = 0
+is_dirty = False
 
 SAVE_DELAY = 5
 
 @persistent
 def on_change(scene, depsgraph):
-    global last_change
+    global last_change, is_dirty
+
+    is_dirty = True
     last_change = time.time()
-    print("Mudança detectada")
 
 def autosave():
-    global last_save
+    global last_save, is_dirty
 
     now = time.time()
 
-    if now - last_change > SAVE_DELAY:
-        if now - last_save > SAVE_DELAY:
+    # só salva se houve mudança
+    if is_dirty:
+
+        # espera parar de mexer
+        if now - last_change > SAVE_DELAY:
+
             if bpy.data.is_saved:
                 bpy.ops.wm.save_mainfile(check_existing=False)
+
                 print("Auto saved")
+
                 last_save = now
+                is_dirty = False
 
     return 1.0
 
@@ -42,7 +51,5 @@ def register():
     bpy.app.timers.register(autosave)
 
 def unregister():
-    print("Addon removido")
-
     if on_change in bpy.app.handlers.depsgraph_update_post:
         bpy.app.handlers.depsgraph_update_post.remove(on_change)
