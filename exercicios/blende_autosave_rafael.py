@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Auto Save Like VSCode",
+    "name": "Auto Save by CoelhoDEV",
     "blender": (4, 0, 0),
     "category": "System",
 }
