@@ -1,0 +1,6 @@
+Sucess: Very Cool (LogFileMixin)
+Error: Bad (LogFileMixin)
+Sucess: Very Cool (LogFileMixin)
+Error: Bad (LogFileMixin)
+Sucess: Very Cool (LogFileMixin)
+Error: Bad (LogFileMixin)
